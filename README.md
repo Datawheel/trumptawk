@@ -1,2 +1,3 @@
-# trumptawk
-Make the Donald Say What he Means!
+# TrumpTawk
+A quick hack that lets you make the Donald say what he means.
+

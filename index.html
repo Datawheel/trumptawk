@@ -1,0 +1,114 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.min.js"></script>
+  <link rel="stylesheet" href="narrow.css" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.css" />
+  <meta property="og:title" content="Trump Tawk: Make the Donald Say What he Means!" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://trumptawk.datawheel.us/" />
+  <meta property="og:image" content="http://example.com/image.jpg" />
+  <meta property="og:description" content="Trump Tawk lets you make the Donald say what you would like him to say." />
+
+
+</head>
+
+<body>
+  <div class="container">
+        <div class="header clearfix">
+          <nav>
+          </nav>
+          <h3 class="text-muted">Trump Tawk</h3>
+        </div>
+
+        <div class="jumbotron">
+          <div><video id="player" src="/words/i.mp4" width="100%"></video></div>
+          <div><select id="select-words"></select></div>
+          <div><p><a onclick="setUp()" class="btn btn-lg btn-primary" role="button">Play</a>
+            <a onclick="window.prompt('Copy the link below', window.location.href)" class="btn btn-lg btn-info" role="button">Share</a>
+          </p></div>
+
+        </div>
+
+        <div class="row marketing">
+          <div class="col-lg-12">
+            <p>Type in one word at a time and hit enter or click the word from the autocomplete to register the word. When you're done with your phrase click play!</p>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p>
+            A <a target="_blank" href="http://twitter.com/datawheel">@Datawheel</a> Labs Project by <strong><a target="_blank" href="http://twitter.com/jspeis">@jspeis</a></strong><br/>
+          </p>
+        </footer>
+
+      </div> <!-- /container -->
+
+<script>
+var tmp = ['i', 'love', 'white', 'russians'];
+
+var msg = getQueryVariable('msg');
+if (msg) {
+  tmp = msg.split(",");
+}
+
+function onSel() {
+  alert("!!");
+}
+
+function getQueryVariable(variable) {
+    // courtesy of http://stackoverflow.com/questions/2090551/parse-query-string-in-javascript
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+    console.log('Query variable %s not found', variable);
+}
+
+function handleChange(val) {
+  tmp = val;
+  if (val)
+    window.history.replaceState(null, null, "/?msg=" + val.join(","));
+
+}
+
+$('#select-words').selectize({
+    maxItems: null,
+    onChange: handleChange,
+    valueField: 'word',
+    labelField: 'word',
+    searchField: 'word',
+    // delimiter: ' ',
+    options: [{'word': 'a'}, {'word': 'achieve'}, {'word': 'again'}, {'word': 'am'}, {'word': 'amendment'}, {'word': 'america'}, {'word': 'american'}, {'word': 'and'}, {'word': 'are'}, {'word': 'as'}, {'word': 'at'}, {'word': 'attack'}, {'word': 'be'}, {'word': 'because'}, {'word': 'been'}, {'word': 'before'}, {'word': 'best'}, {'word': 'big'}, {'word': 'billions'}, {'word': 'cares'}, {'word': 'chance'}, {'word': 'china'}, {'word': 'clinton'}, {'word': 'comply'}, {'word': 'control'}, {'word': 'corrupt'}, {'word': 'crazy'}, {'word': 'deport'}, {'word': 'deported'}, {'word': 'do'}, {'word': 'dont'}, {'word': 'education'}, {'word': 'end'}, {'word': 'everything'}, {'word': 'factory'}, {'word': 'fantastic'}, {'word': 'farms'}, {'word': 'fight'}, {'word': 'for'}, {'word': 'goal'}, {'word': 'going'}, {'word': 'great'}, {'word': 'had'}, {'word': 'hard'}, {'word': 'have'}, {'word': 'he'}, {'word': 'hear'}, {'word': 'historic'}, {'word': 'huge'}, {'word': 'i'}, {'word': 'idea'}, {'word': 'in'}, {'word': 'is'}, {'word': 'it'}, {'word': 'know'}, {'word': 'leader'}, {'word': 'legal'}, {'word': 'like'}, {'word': 'listen'}, {'word': 'love'}, {'word': 'lying'}, {'word': 'make'}, {'word': 'mexico'}, {'word': 'million'}, {'word': 'mistake'}, {'word': 'mysteries'}, {'word': 'new'}, {'word': 'norm'}, {'word': 'not'}, {'word': 'obama'}, {'word': 'of'}, {'word': 'on'}, {'word': 'order'}, {'word': 'our'}, {'word': 'out'}, {'word': 'party'}, {'word': 'people'}, {'word': 'poor'}, {'word': 'population'}, {'word': 'power'}, {'word': 'president'}, {'word': 'problem'}, {'word': 'russia'}, {'word': 'russian'}, {'word': 'russians'}, {'word': 'russians2'}, {'word': 'save'}, {'word': 'see'}, {'word': 'small'}, {'word': 'something'}, {'word': 'stupid'}, {'word': 'talent'}, {'word': 'that'}, {'word': 'the'}, {'word': 'there'}, {'word': 'they'}, {'word': 'things'}, {'word': 'this'}, {'word': 'thought'}, {'word': 'to'}, {'word': 'tremendous'}, {'word': 'very'}, {'word': 'we'}, {'word': 'whatthehell'}, {'word': 'which'}, {'word': 'white'}, {'word': 'win'}, {'word': 'with'}, {'word': 'you'}, {'word': 'your'}, {'word': 'zero'}],
+    items: tmp
+});
+
+var sentence = [];
+var video = document.querySelector("video");
+
+function setUp(){
+  sentence = tmp.slice();
+  playMe();
+}
+
+function playMe() {
+  if (sentence.length > 0) {
+    var w = sentence.shift();
+    video.src = 'words/' + w + '.mp4';
+    video.play();
+    video.addEventListener('ended', playMe, false);
+  }
+}
+
+</script>
+</body>
+</html>
