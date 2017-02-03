@@ -27,6 +27,7 @@
         </div>
 
         <div class="jumbotron">
+
           <div><video id="player" src="/words/i.mp4" width="100%"></video></div>
           <div><select id="select-words"></select></div>
           <div>
@@ -36,7 +37,7 @@
               <a onclick="shuffle()" class="btn btn-lg btn-info" role="button">Shuffle</a>
             </p>
           </div>
-
+          <div style="display:none;"><video muted id="hidden-player" src="/words/am.mp4" width="100%"></video></div>
 
         </div>
 
@@ -113,7 +114,8 @@ var $select = $('#select-words').selectize({
 var selectize = $select[0].selectize;
 
 var sentence = [];
-var video = document.querySelector("video");
+var video = document.querySelector("#player");
+var hidden_video = document.querySelector("#hidden-player");
 
 function setUp(){
   sentence = tmp.slice();
@@ -126,6 +128,12 @@ function playMe() {
     video.src = 'words/' + w + '.mp4';
     video.play();
     video.addEventListener('ended', playMe, false);
+
+    // start preloading next video - maybe caching will help?
+    if (sentence.length > 0) {
+      hidden_video.src = 'words/' + sentence[0] + '.mp4';
+      hidden_video.play();
+    }
   }
 }
 
