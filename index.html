@@ -29,9 +29,14 @@
         <div class="jumbotron">
           <div><video id="player" src="/words/i.mp4" width="100%"></video></div>
           <div><select id="select-words"></select></div>
-          <div><p><a onclick="setUp()" class="btn btn-lg btn-primary" role="button">Play</a>
-            <a onclick="window.prompt('Copy the link below', window.location.href)" class="btn btn-lg btn-info" role="button">Share</a>
-          </p></div>
+          <div>
+            <p>
+              <a onclick="setUp()" class="btn btn-lg btn-primary" role="button">Play</a>
+              <a onclick="window.prompt('Copy the link below', window.location.href)" class="btn btn-lg btn-success" role="button">Share</a>
+              <a onclick="shuffle()" class="btn btn-lg btn-info" role="button">Shuffle</a>
+            </p>
+          </div>
+
 
         </div>
 
@@ -52,13 +57,27 @@
 <script>
 var tmp = ['make', 'america', 'deport', 'again'];
 
+var phrases = [
+  ['make', 'america', 'deport', 'again'],
+  ['make', 'america', 'russian', 'again'],
+  ['i', 'am', 'not', 'the', 'best'],
+  ['that', 'is', 'stupid'],
+  ['i', 'dont', 'have', 'billions'],
+  ['i', 'am', 'not', 'crazy'],
+  ['i', 'am', 'the', 'best'],
+  ['i', 'love', 'clinton'],
+  ['clinton', 'is', 'the', 'best'],
+  ['russia', 'is', 'the', 'best']
+]
+
 var msg = getQueryVariable('msg');
 if (msg) {
   tmp = msg.split(",");
 }
 
-function onSel() {
-  alert("!!");
+function shuffle() {
+  tmp = phrases[Math.floor(Math.random()*phrases.length)];
+  selectize.setValue(tmp);
 }
 
 function getQueryVariable(variable) {
@@ -81,7 +100,7 @@ function handleChange(val) {
 
 }
 
-$('#select-words').selectize({
+var $select = $('#select-words').selectize({
     maxItems: null,
     onChange: handleChange,
     valueField: 'word',
@@ -91,6 +110,7 @@ $('#select-words').selectize({
     options: [{'word': 'nasty'}, {'word': 'a'}, {'word': 'achieve'}, {'word': 'again'}, {'word': 'am'}, {'word': 'amendment'}, {'word': 'america'}, {'word': 'american'}, {'word': 'and'}, {'word': 'are'}, {'word': 'as'}, {'word': 'at'}, {'word': 'attack'}, {'word': 'be'}, {'word': 'because'}, {'word': 'been'}, {'word': 'before'}, {'word': 'best'}, {'word': 'big'}, {'word': 'billions'}, {'word': 'cares'}, {'word': 'chance'}, {'word': 'china'}, {'word': 'clinton'}, {'word': 'comply'}, {'word': 'control'}, {'word': 'corrupt'}, {'word': 'crazy'}, {'word': 'deport'}, {'word': 'deported'}, {'word': 'do'}, {'word': 'dont'}, {'word': 'education'}, {'word': 'end'}, {'word': 'everything'}, {'word': 'factory'}, {'word': 'fantastic'}, {'word': 'farms'}, {'word': 'fight'}, {'word': 'for'}, {'word': 'goal'}, {'word': 'going'}, {'word': 'great'}, {'word': 'had'}, {'word': 'hard'}, {'word': 'have'}, {'word': 'he'}, {'word': 'hear'}, {'word': 'historic'}, {'word': 'huge'}, {'word': 'i'}, {'word': 'idea'}, {'word': 'in'}, {'word': 'is'}, {'word': 'it'}, {'word': 'know'}, {'word': 'leader'}, {'word': 'legal'}, {'word': 'like'}, {'word': 'listen'}, {'word': 'love'}, {'word': 'lying'}, {'word': 'make'}, {'word': 'mexico'}, {'word': 'million'}, {'word': 'mistake'}, {'word': 'mysteries'}, {'word': 'new'}, {'word': 'norm'}, {'word': 'not'}, {'word': 'obama'}, {'word': 'of'}, {'word': 'on'}, {'word': 'order'}, {'word': 'our'}, {'word': 'out'}, {'word': 'party'}, {'word': 'people'}, {'word': 'poor'}, {'word': 'population'}, {'word': 'power'}, {'word': 'president'}, {'word': 'problem'}, {'word': 'russia'}, {'word': 'russian'}, {'word': 'russians'}, {'word': 'save'}, {'word': 'see'}, {'word': 'small'}, {'word': 'something'}, {'word': 'stupid'}, {'word': 'talent'}, {'word': 'that'}, {'word': 'the'}, {'word': 'there'}, {'word': 'they'}, {'word': 'things'}, {'word': 'this'}, {'word': 'thought'}, {'word': 'to'}, {'word': 'tremendous'}, {'word': 'very'}, {'word': 'we'}, {'word': 'whatthehell'}, {'word': 'which'}, {'word': 'white'}, {'word': 'win'}, {'word': 'with'}, {'word': 'you'}, {'word': 'your'}, {'word': 'zero'}],
     items: tmp
 });
+var selectize = $select[0].selectize;
 
 var sentence = [];
 var video = document.querySelector("video");
