@@ -1,6 +1,5 @@
 video {
-  /*margin-top: 5px;*/
-  margin-bottom: 15px;
+  height: 400px;
 }
 #select-words {
   margin-top: 210px;
@@ -21,11 +20,6 @@ body {
   padding-left: 1rem;
 }
 
-/* Custom page header */
-.header {
-  padding-bottom: 1rem;
-  border-bottom: .05rem solid #e5e5e5;
-}
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -52,12 +46,21 @@ body {
 
 /* Main marketing message and sign up button */
 .jumbotron {
+  padding: 2rem;
   text-align: center;
-  border-bottom: .05rem solid #e5e5e5;
 }
 .jumbotron .btn {
-  padding: .75rem 1.5rem;
-  font-size: 1.5rem;
+  color: white !important;
+  display: inline-block;
+  margin: 5px 10px;
+}
+
+.selectize-control {
+  margin: 20px 0;
+}
+
+p {
+  margin: 0;
 }
 
 /* Supporting marketing content */

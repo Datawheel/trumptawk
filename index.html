@@ -1,6 +1,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -20,9 +21,7 @@
 
 <body>
   <div class="container">
-        <div class="header clearfix">
-          <nav>
-          </nav>
+        <div class="header">
           <h3 class="text-muted"><a href="https://trumptawk.datawheel.us">Trump Tawk</a></h3>
         </div>
 
@@ -32,9 +31,9 @@
           <div><select id="select-words"></select></div>
           <div>
             <p>
-              <a onclick="setUp()" class="btn btn-lg btn-primary" role="button">Play</a>
-              <a onclick="window.prompt('Copy the link below', window.location.href)" class="btn btn-lg btn-success" role="button">Share</a>
-              <a onclick="shuffle()" class="btn btn-lg btn-info" role="button">Shuffle</a>
+              <a onclick="setUp()" class="btn btn-lg btn-success" role="button"><i class="fa fa-play"></i> Play</a>
+              <a onclick="shuffle()" class="btn btn-lg btn-info" role="button"><i class="fa fa-random"></i> Shuffle</a>
+              <a onclick="window.prompt('Copy the link below', window.location.href)" class="btn btn-lg btn-primary" role="button"><i class="fa fa-share"></i> Share</a>
             </p>
           </div>
           <div style="display:none;"><video muted id="hidden-player" src="/words/am.mp4" width="100%"></video></div>
@@ -53,7 +52,7 @@
           </p>
         </footer>
 
-      </div> <!-- /container -->
+      </div>
 
 <script>
 var tmp = ['make', 'america', 'deport', 'again'];
