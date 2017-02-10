@@ -6,4 +6,4 @@ Help expand what users can express! Use your favorite video editor and trim word
 
 Using ffmpeg we've been transcoding new video files (assuming we had a word.mov file) as follows:
 
-```ffmpeg -an -i word.mov -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -level 3 -movflags +faststart words/word.mp4```
+```ffmpeg -an -i word.mov -movflags +faststart -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -    level 3 word.mp4```
