@@ -1568,6 +1568,8 @@
 		 * @returns {boolean}
 		 */
 		onKeyPress: function(e) {
+			this.$dropdown_content.scrollTop(0); // scroll to top when typing
+			this.setActiveOption($("option")[0]);
 			if (this.isLocked) return e && e.preventDefault();
 			var character = String.fromCharCode(e.keyCode || e.which);
 			if (this.settings.create && this.settings.mode === 'multi' && character === this.settings.delimiter) {
